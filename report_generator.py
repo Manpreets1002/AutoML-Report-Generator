@@ -14,8 +14,8 @@ from langchain_core.output_parsers import StrOutputParser
 load_dotenv()
 st.set_page_config("Report",layout="wide")
 st.title("AutoML Report Generator")
-st.write("Summary")
-
+st.header("Summary")
+st.write("AutoML Report Generator is a Streamlit-based application that allows you to upload your dataset, perform automated machine learning tasks (regression or classification), and receive a detailed, AI-generated analysis report. It handles preprocessing, model training, evaluation, and even lets you download a natural language summary powered by LLMs.")
 upload_file = st.file_uploader("Add CSV file for Report",type=["csv"])
 
 if upload_file is None:
