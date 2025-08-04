@@ -1,0 +1,11 @@
+scikit-learn
+langchain
+langchain-groq
+langchain-core
+langchain-community
+pandas
+numpy
+streamlit
+plotly
+xgboost
+catboost
