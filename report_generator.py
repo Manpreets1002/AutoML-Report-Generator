@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder,StandardScaler,LabelEncoder
 from sklearn.compose import ColumnTransformer
-from sklearn.metrics import accuracy_score,r2_score,classification_report,f1_score
+from sklearn.metrics import accuracy_score,r2_score,f1_score
 import numpy as np
 from langchain_core.output_parsers import StrOutputParser
 
@@ -206,7 +206,6 @@ else:
                 "Decision Tree Classifier" : DecisionTreeClassifier(),
                 "XGBoost Classifier" : XGBClassifier(),
                 "CatBoost Classifier" : CatBoostClassifier(),
-                "Naive Bayes Classifier" : GaussianNB()
             }
             model_performance = {}
             try:
@@ -251,7 +250,8 @@ else:
             pass
         else:
             api_key = os.getenv("GROQ_API_KEY")
-            llm_model = ChatGroq(model="Llama3-8b-8192",groq_api_key=api_key)
+            api_key = st.secrets["GROQ_API_KEY"]
+            llm_model = ChatGroq(model="Llama3-8b-8192",groq_api_key="api_key")
 
             report_data = {
                 "num_rows": clean_df.shape[0],
