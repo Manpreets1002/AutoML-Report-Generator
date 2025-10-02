@@ -249,9 +249,7 @@ else:
         if best_model_val == 0:
             pass
         else:
-            api_key = os.getenv("GROQ_API_KEY")
-            api_key = st.secrets["GROQ_API_KEY"]
-            llm_model = ChatGroq(model="Llama3-8b-8192",groq_api_key="api_key")
+            llm_model = ChatGroq(model="Llama3-8b-8192",groq_api_key=st.secrets["GROQ_API_KEY"])
 
             report_data = {
                 "num_rows": clean_df.shape[0],
@@ -292,4 +290,5 @@ else:
                 response,
                 "ML Report.txt",
                 "text/plain"
+
             )
